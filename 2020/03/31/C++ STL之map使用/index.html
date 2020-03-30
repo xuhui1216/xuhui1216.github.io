@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2020330  2：09, Hexo">
+    <meta name="keywords" content="C++ STL之map使用, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2020330  2：09 | Hexo</title>
+    <title>C++ STL之map使用 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -306,12 +306,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2020330  2：09</h1>
+                    <h1 class="description center-align post-title">C++ STL之map使用</h1>
                 </div>
             </div>
         </div>
@@ -440,7 +440,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-30
+                    2020-03-31
                 </div>
                 
 
@@ -457,8 +457,46 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>2020/3/30  2：09</p>
-<p>第一篇博客诞生啦！欢迎来到xuhui1216.github.io!</p>
+                <h1 id="C-STL之map使用"><a href="#C-STL之map使用" class="headerlink" title="C++ STL之map使用"></a>C++ STL之map使用</h1><h2 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a>介绍：</h2><p>map是STL的一个关联容器，它提供一对一（其中第一个可以称为关键字，每个关键字只能在map中出现一次，第二个可能称为该关键字的值）的数据处理能力，由于这个特性，它完成有可能在我们处理一对一数据的时候，在编程上提供快速通道。这里说下map内部数据的组织，map内部自建一颗<strong>红黑树</strong>(一种非严格意义上的平衡二叉树)，这颗树具有<strong>对数据自动排序</strong>的功能，所以在map内部所有的数据都是有序的，后边我们会见识到有序的好处。</p>
+<h2 id="头文件和构造函数："><a href="#头文件和构造函数：" class="headerlink" title="头文件和构造函数："></a>头文件和构造函数：</h2><p>#include<map></p>
+<p>使用格式：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;datatype,datatype&gt; Exm;</span><br></pre></td></tr></table></figure>
+
+<h2 id="插入："><a href="#插入：" class="headerlink" title="插入："></a>插入：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 定义一个map对象map&lt;int, string&gt; mapStudent; </span><br><span class="line">&#x2F;&#x2F; 第一种 用insert函數插入pair</span><br><span class="line">mapStudent.insert(pair&lt;int, string&gt;(000, &quot;student_zero&quot;)); </span><br><span class="line">&#x2F;&#x2F; 第二种 用insert函数插入value_type数据</span><br><span class="line">mapStudent.insert(map&lt;int, string&gt;::value_type(001, &quot;student_one&quot;));</span><br><span class="line">&#x2F;&#x2F; 第三种 用&quot;array&quot;方式插入</span><br><span class="line">mapStudent[123] &#x3D; &quot;student_first&quot;;mapStudent[456] &#x3D; &quot;student_second&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>当map中有待插入元素的关键字时，insert操作是不能在插入数据的，但是用数组方式就不同了，它可以覆盖以前该关键字对应的值。</p>
+<blockquote>
+<p>pair:  c++中的结构模板，定义在头文件utility中，提供一个包含2个数据成员的结构体模板。继承与_Pair_base结构体模板。通过first，second访问2个成员，有 operator= 和 swap 方法。(将两个数据成员合并为一个)</p>
+<p>value_type类型：指迭代器所指对象的型别。任何一个打算与STL算法有完美搭配的class，都应该定义自己的value_ type内嵌型别。（常用于模板的构建）</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 构造定义，返回一个pair对象</span><br><span class="line">pair&lt;iterator,bool&gt; insert (const value_type&amp; val);</span><br><span class="line">pair&lt;map&lt;int, string&gt;::iterator, bool&gt; Insert_Pair;</span><br><span class="line">Insert_Pair &#x3D; mapStudent.insert(map&lt;int, string&gt;::value_type (001,&quot;student_one&quot;)); </span><br><span class="line">if(!Insert_Pair.second)   </span><br><span class="line">cout &lt;&lt; &quot;&quot;Error insert new element&quot; &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+
+<p>我们通过pair的第二个变量来知道是否插入成功，它的第一个变量返回的是一个map的迭代器，如果插入成功的话Insert_Pair. second应该是true的，否则为false。</p>
+<h2 id="查找："><a href="#查找：" class="headerlink" title="查找："></a>查找：</h2><p>使用迭代器+find函数，注意查找的是关键字key,若成功则返回迭代器，若失败返回map. end()</p>
+<h2 id="删除与清空："><a href="#删除与清空：" class="headerlink" title="删除与清空："></a>删除与清空：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;迭代器刪除</span><br><span class="line">iter &#x3D; mapStudent.find(&quot;123&quot;);</span><br><span class="line">mapStudent.erase(iter); </span><br><span class="line">&#x2F;&#x2F;用关键字刪除</span><br><span class="line">int n &#x3D; mapStudent.erase(&quot;123&quot;); </span><br><span class="line">&#x2F;&#x2F;如果刪除了會返回1，否則返回0 </span><br><span class="line">&#x2F;&#x2F;用迭代器范围刪除 : 把整个map清空</span><br><span class="line">mapStudent.erase(mapStudent.begin(), mapStudent.end());</span><br><span class="line">&#x2F;&#x2F;等同于mapStudent.clear()</span><br></pre></td></tr></table></figure>
+
+<p>注意map是有序的</p>
+<h2 id="大小："><a href="#大小：" class="headerlink" title="大小："></a>大小：</h2><p>size函数，不加赘述</p>
+<h2 id="map的基本操作函数"><a href="#map的基本操作函数" class="headerlink" title="map的基本操作函数"></a><strong>map的基本操作函数</strong></h2><p>C++ maps是一种关联式容器，包含“关键字/值”对</p>
+<p> begin()         返回指向map头部的迭代器</p>
+<p> clear(）        删除所有元素</p>
+<p> count()         返回指定元素出现的次数</p>
+<p> empty()         如果map为空则返回true</p>
+<p> end()           返回指向map末尾的迭代器</p>
+<p> equal_range()   返回特殊条目的迭代器对</p>
+<p> erase()         删除一个元素</p>
+<p> find()          查找一个元素</p>
+<p> get_allocator() 返回map的配置器</p>
+<p> insert()        插入元素</p>
+<p> key_comp()      返回比较元素key的函数</p>
+<p> lower_bound()   返回键值&gt;=给定元素的第一个位置</p>
+<p> max_size()      返回可以容纳的最大元素个数</p>
+<p> rbegin()        返回一个指向map尾部的逆向迭代器</p>
+<p> rend()          返回一个指向map头部的逆向迭代器</p>
+<p> size()          返回map中元素的个数</p>
+<p> swap()           交换两个map</p>
+<p> upper_bound()    返回键值&gt;给定元素的第一个位置</p>
+<p> value_comp()     返回比较元素value的函数</p>
 
             </div>
             <hr/>
@@ -484,7 +522,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/03/30/2020330%20%202%EF%BC%9A09/">http://yoursite.com/2020/03/30/2020330%20%202%EF%BC%9A09/</a>
+                    <a href="http://yoursite.com/2020/03/31/C++%20STL%E4%B9%8Bmap%E4%BD%BF%E7%94%A8/">http://yoursite.com/2020/03/31/C++%20STL%E4%B9%8Bmap%E4%BD%BF%E7%94%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -685,9 +723,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/03/31/C++%20STL%E4%B9%8Bmap%E4%BD%BF%E7%94%A8/">
                     <div class="card-image">
@@ -705,9 +744,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -716,6 +755,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -726,19 +766,21 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/30/myFirstBlog/">
+                <a href="/2020/03/30/2020330%20%202%EF%BC%9A09/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="myFirstBlog">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="2020330  2：09">
                         
-                        <span class="card-title">myFirstBlog</span>
+                        <span class="card-title">2020330  2：09</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            2020/3/30  2：09
+第一篇博客诞生啦！欢迎来到xuhui1216.github.io!
+
                         
                     </div>
                     <div class="publish-info">
