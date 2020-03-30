@@ -497,6 +497,11 @@
 <p> swap()           交换两个map</p>
 <p> upper_bound()    返回键值&gt;给定元素的第一个位置</p>
 <p> value_comp()     返回比较元素value的函数</p>
+<h2 id="map与unordered-map"><a href="#map与unordered-map" class="headerlink" title="map与unordered_map"></a>map与unordered_map</h2><p>区别在于是否排序，map: 在缺省下，按照递增的排序顺序unordered_map :不排序  </p>
+<p>map :在map内部采用了自平衡的BST（二叉搜索树）的数据结构，实现了数据排序；unordered_map: 内部采用了哈希表的数据结构</p>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><p>map： 该类型的搜索时间复杂度为log(n)     unordered_map ： 搜索时间复杂度。O(1)为平均时间，最坏情况下的时间复杂度为O（n）;</p>
+<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>map : 该操作的时间 复杂度为log(n)+再平衡时间    unordered_map : 该操作的时间复杂度与搜索的时间复杂度一样。</p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>删除操作的时间复杂度与插入操作的时间复杂度是一样的。</p>
 
             </div>
             <hr/>
