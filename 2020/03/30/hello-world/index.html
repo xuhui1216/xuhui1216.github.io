@@ -911,6 +911,23 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+ {% elseif theme.gitalk.enable %}
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<div id="gitalk-container"></div>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '86807f7bd755f3db11965d518add34a3df2269d6',
+        id: window.location.pathname,
+        repo: '',
+        owner: '',
+        admin: ''
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+{% endif %}
 
     <footer class="page-footer bg-color">
     
