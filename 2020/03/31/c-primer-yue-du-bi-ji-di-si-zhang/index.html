@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2020330  2：09, Hexo">
+    <meta name="keywords" content="C++Primer 阅读笔记-第四章, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2020330  2：09 | Hexo</title>
+    <title>C++Primer 阅读笔记-第四章 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -62,7 +62,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
+    <a href="tags" class="waves-effect waves-light">
       
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
@@ -73,7 +73,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/categories" class="waves-effect waves-light">
+    <a href="categories" class="waves-effect waves-light">
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
@@ -164,7 +164,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
+		<a href="tags" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-tags"></i>
 			
@@ -175,7 +175,7 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/categories" class="waves-effect waves-light">
+		<a href="categories" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-bookmark"></i>
 			
@@ -306,12 +306,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2020330  2：09</h1>
+                    <h1 class="description center-align post-title">C++Primer 阅读笔记-第四章</h1>
                 </div>
             </div>
         </div>
@@ -440,25 +440,81 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-30
+                    2020-03-31
                 </div>
                 
 
                 
 
                 
-
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.3k
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    4 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
 
         </div>
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>2020/3/30  2：09</p>
-<p>第一篇博客诞生啦！欢迎来到xuhui1216.github.io!</p>
+                <h1 id="C-Primer-阅读笔记"><a href="#C-Primer-阅读笔记" class="headerlink" title="C++Primer 阅读笔记"></a>C++Primer 阅读笔记</h1><h2 id="第四章-表达式"><a href="#第四章-表达式" class="headerlink" title="第四章  表达式"></a>第四章  表达式</h2><h3 id="4-5-递增和递减运算符"><a href="#4-5-递增和递减运算符" class="headerlink" title="4.5 递增和递减运算符"></a>4.5 递增和递减运算符</h3><ol>
+<li><p>自增和自减运算符必须作用于左值运算对象，前置版本将对象本身作为<strong>左值</strong>返回，后置版本则将对象原始值的副本作为<strong>右值</strong>返回。</p>
+</li>
+<li><p>除非必须，否则不用递增递减运算符的后置版本（将原始值存储下来返回，是一种浪费）（for循环：i++-&gt;++i)</p>
+</li>
+<li><p>运算对象可以按任意顺序求值：a=a++  语句未定义，编译器可能会自行处理</p>
+</li>
+<li><p>解引用运算符的优先级低于点运算符：*p. size()  语句错误 ，p为指针，并没有size成员</p>
+<h3 id="4-7条件运算符"><a href="#4-7条件运算符" class="headerlink" title="4.7条件运算符"></a>4.7条件运算符</h3></li>
+<li><p>形式：cond ? expr1:expr2   expr1与expr2是两个类型相同或可能转换为某个公共类型的表达式</p>
+</li>
+<li><p>当条件运算符的<strong>两个表达式都是左值或者能转换成同一种左值类型时</strong>，运算的结果是左值，否则运算的结果是右值</p>
+</li>
+<li><p>允许在条件运算符的内部嵌套另一个条件运算符，如：（根据成绩分档，high pass\pass\fail</p>
+</li>
+<li><pre><code>finalgrade =(grade&gt;90)?&quot;high pass&quot; :(grade&lt;60)?&quot;fail&quot;:&quot;pass&quot;;</code></pre></li>
+</ol>
+<h3 id="4-8位运算符"><a href="#4-8位运算符" class="headerlink" title="4.8位运算符"></a>4.8位运算符</h3><ol>
+<li>关于符号位如何处理没有明确的规定，所以建议仅将位运算符用于处理无符号类型</li>
+<li>移位运算符中&gt;&gt;/&lt;&lt;右侧的运算对象一定<strong>不能为负</strong>，而且值必须严格小于结果的位数</li>
+<li>如果运算对象是带符号类型，在左侧插入符号位的副本或值为0的二进制位，如何选择视具体环境而定</li>
+<li>char类型占1字节（8位），移位时首先提升成int类型（4字节，32位）</li>
+<li>可以使用位与（&amp;）位或（|）位异或（^)等进行状态只有2的统计，如班级30个学生是否通过考试，unsigned long32位，若通过则与1&lt;&lt;i（学生编号）位与运算</li>
+<li>移位运算符优先级比算术运算符的优先级低，但比关系运算符、赋值运算符、条件运算符的优先级高</li>
+</ol>
+<h3 id="4-9-4-10-sizeof-运算符和逗号运算符"><a href="#4-9-4-10-sizeof-运算符和逗号运算符" class="headerlink" title="4.9+4.10 sizeof  运算符和逗号运算符"></a>4.9+4.10 sizeof  运算符和逗号运算符</h3><ol>
+<li>对数组执行sizeof运算符得到整个数组所占空间的大小（并不会当成指针处理），但对string对象或vector对象执行sizeof运算只返回该类型固定部分的大小，不会计算对象的元素占用了多少空间</li>
+<li>逗号运算符真正的结果是<strong>右侧表达式的值</strong>，如果右侧表达式是左值，则最终的求值结果也是左值</li>
+</ol>
+<h3 id="4-11-类型转换"><a href="#4-11-类型转换" class="headerlink" title="4.11 类型转换"></a>4.11 类型转换</h3><ol>
+<li>整型提升：对于bool\char\unsigned char\short\等类型来说，只要它们所有可能的值能存在Int里，它们就会提升成int 类型</li>
+<li>如果一个运算对象是无符号类型，另外一个是带符号类型，而且其中无符号类型不小于带符号类型（所占空间），那么带符号的运算对象转换成无符号的（若负值极有可能引发错误）</li>
+<li>如果带符号类型大于无符号类型，如果无符号类型的所有值都能存在该带符号类型中，则无符号类型的运算对象转换成带符号类型。如果不能，那么带符号类型的运算对象转换成无符号型，例如，如果两个运算对象的类型分别是Long 和unsigned int ，并且int和long的大小相同，则long类型的运算对象转换成unsigned int 类型，若long类型占用的空间比int 多，则unsignde int类型的运算符转换成long 类型</li>
+<li>在绝大多数用到数组的表达式中，数组自动转换成指向数组首元素的指针，而当数组被用作decltype关键字，或作为取地址符（&amp;)、sizeof及typeid等运算符的运算对象时，上述转换不会发生，同样的，如果用一个引用来初始化数组，上述转换也不会发生。</li>
+<li>指向任意非常量的指针能转换成void<em>,指向任意对象的指针能转换成const void\</em></li>
+<li>强制类型转换： cast-name<type>(expression)</li>
+<li>cast-name 是 static_cast、dynamic_cast、const_cast、reinterpret_cast中的一种</li>
+<li>static_cast: 任何具有<strong>明确定义</strong>的类型转换，只要不包含底层const，都可以使用static_cast。</li>
+<li>const_cast 只能改变运算对象的底层const，如果对象本身不是一个常量，使用强制类型转换获得写权限是合法的行为，但如果对象本身是一个常量，再用const_cast执行写操作就会产生未定义的后果（常用于有函数重载的上下文中）</li>
+<li>reinterpret_cast通常位运算对象的位模式提供较低层次上的重新解释（本质上依赖于机器，要想安全使用必须对涉及的类型和编译器实现转换的过程非常了解）</li>
+</ol>
+<p><img src="C:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200331142248724.png" alt="image-20200331142248724"></p>
+<p><img src="C:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200331142403234.png" alt="image-20200331142403234"></p>
 
             </div>
             <hr/>
@@ -474,7 +530,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com" rel="external nofollow noreferrer">John Doe</a>
+                    <a href="http://xuhui1216.github.io" rel="external nofollow noreferrer">John Doe</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -484,7 +540,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/03/30/2020330%20%202%EF%BC%9A09/">http://yoursite.com/2020/03/30/2020330%20%202%EF%BC%9A09/</a>
+                    <a href="http://xuhui1216.github.io/2020/03/31/c-primer-yue-du-bi-ji-di-si-zhang/">http://xuhui1216.github.io/2020/03/31/c-primer-yue-du-bi-ji-di-si-zhang/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -497,7 +553,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="http://yoursite.com" target="_blank">John Doe</a>
+                    <a href="http://xuhui1216.github.io" target="_blank">John Doe</a>
                     !
                 </span>
             </div>
@@ -689,19 +745,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/03/31/C++%20STL%E4%B9%8Bmap%E4%BD%BF%E7%94%A8/">
+                <a href="/2020/03/31/pageabout/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="C++ STL之map使用">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
                         
-                        <span class="card-title">C++ STL之map使用</span>
+                        <span class="card-title">about</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            C++ STL之map使用介绍：map是STL的一个关联容器，它提供一对一（其中第一个可以称为关键字，每个关键字只能在map中出现一次，第二个可能称为该关键字的值）的数据处理能力，由于这个特性，它完成有可能在我们处理一对一数据的时候，在编程
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -726,24 +782,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/30/myFirstBlog/">
+                <a href="/2020/03/31/c-stl-zhi-map-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="myFirstBlog">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="C++ STL之map使用">
                         
-                        <span class="card-title">myFirstBlog</span>
+                        <span class="card-title">C++ STL之map使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            C++ STL之map使用介绍：map是STL的一个关联容器，它提供一对一（其中第一个可以称为关键字，每个关键字只能在map中出现一次，第二个可能称为该关键字的值）的数据处理能力，由于这个特性，它完成有可能在我们处理一对一数据的时候，在编程
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-31
                             </span>
                         <span class="publish-author">
                             
@@ -905,15 +961,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     }
 
     
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
 </style>
 <div class="">
     
@@ -921,9 +968,9 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
                    type="playlist"
-                   id="503838841"
+                   id="641878625"
                    fixed='true'
-                   autoplay='false'
+                   autoplay='true'
                    theme='#42b983'
                    loop='all'
                    order='random'
@@ -942,10 +989,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             <span id="year">2019</span>
-            <a href="http://yoursite.com" target="_blank">John Doe</a>
+            <a href="http://xuhui1216.github.io" target="_blank">John Doe</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">2.5k</span>&nbsp;字
             
             
             
@@ -969,13 +1019,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/xuhui1216" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:xuhui_1216@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -985,7 +1035,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3076239907" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 3076239907" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
