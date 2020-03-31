@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="C++Primer 阅读笔记第四章  表达式4.5 递增和递减运算符 自增和自减运算符必须作用于左值运算对象，前置版本将对象本身作为左值返回，后置版本则将对象原始值的副本作为右值返回。  除非必须，否则不用递增递减运算符的后置版本（将原始值存储下来返回，是一种浪费）（for循环：i++-&gt;++i)  运算对象可以按任意顺序求值：a&#x3D;a++  语句未定义，编译器可能会自行处理  解引用运算符的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++Primer 阅读笔记-第四章">
+<meta property="og:url" content="http://xuhui1216.github.io/2020/03/31/c-primer-yue-du-bi-ji-di-si-zhang/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="C++Primer 阅读笔记第四章  表达式4.5 递增和递减运算符 自增和自减运算符必须作用于左值运算对象，前置版本将对象本身作为左值返回，后置版本则将对象原始值的副本作为右值返回。  除非必须，否则不用递增递减运算符的后置版本（将原始值存储下来返回，是一种浪费）（for循环：i++-&gt;++i)  运算对象可以按任意顺序求值：a&#x3D;a++  语句未定义，编译器可能会自行处理  解引用运算符的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200331142248724.png">
+<meta property="og:image" content="c:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200331142403234.png">
+<meta property="article:published_time" content="2020-03-31T06:24:51.110Z">
+<meta property="article:modified_time" content="2020-03-31T09:35:46.311Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200331142248724.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xuhui1216.github.io/2020/03/31/c-primer-yue-du-bi-ji-di-si-zhang/"/>
+
+
+
+
+
+  <title>C++Primer 阅读笔记-第四章 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">love life</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xuhui1216.github.io/2020/03/31/c-primer-yue-du-bi-ji-di-si-zhang/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++Primer 阅读笔记-第四章</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-31T14:24:51+08:00">
+                2020-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="C-Primer-阅读笔记"><a href="#C-Primer-阅读笔记" class="headerlink" title="C++Primer 阅读笔记"></a>C++Primer 阅读笔记</h1><h2 id="第四章-表达式"><a href="#第四章-表达式" class="headerlink" title="第四章  表达式"></a>第四章  表达式</h2><h3 id="4-5-递增和递减运算符"><a href="#4-5-递增和递减运算符" class="headerlink" title="4.5 递增和递减运算符"></a>4.5 递增和递减运算符</h3><ol>
+<li><p>自增和自减运算符必须作用于左值运算对象，前置版本将对象本身作为<strong>左值</strong>返回，后置版本则将对象原始值的副本作为<strong>右值</strong>返回。</p>
+</li>
+<li><p>除非必须，否则不用递增递减运算符的后置版本（将原始值存储下来返回，是一种浪费）（for循环：i++-&gt;++i)</p>
+</li>
+<li><p>运算对象可以按任意顺序求值：a=a++  语句未定义，编译器可能会自行处理</p>
+</li>
+<li><p>解引用运算符的优先级低于点运算符：*p. size()  语句错误 ，p为指针，并没有size成员</p>
+<h3 id="4-7条件运算符"><a href="#4-7条件运算符" class="headerlink" title="4.7条件运算符"></a>4.7条件运算符</h3></li>
+<li><p>形式：cond ? expr1:expr2   expr1与expr2是两个类型相同或可能转换为某个公共类型的表达式</p>
+</li>
+<li><p>当条件运算符的<strong>两个表达式都是左值或者能转换成同一种左值类型时</strong>，运算的结果是左值，否则运算的结果是右值</p>
+</li>
+<li><p>允许在条件运算符的内部嵌套另一个条件运算符，如：（根据成绩分档，high pass\pass\fail</p>
+</li>
+<li><pre><code>finalgrade =(grade&gt;90)?&quot;high pass&quot; :(grade&lt;60)?&quot;fail&quot;:&quot;pass&quot;;</code></pre></li>
+</ol>
+<h3 id="4-8位运算符"><a href="#4-8位运算符" class="headerlink" title="4.8位运算符"></a>4.8位运算符</h3><ol>
+<li>关于符号位如何处理没有明确的规定，所以建议仅将位运算符用于处理无符号类型</li>
+<li>移位运算符中&gt;&gt;/&lt;&lt;右侧的运算对象一定<strong>不能为负</strong>，而且值必须严格小于结果的位数</li>
+<li>如果运算对象是带符号类型，在左侧插入符号位的副本或值为0的二进制位，如何选择视具体环境而定</li>
+<li>char类型占1字节（8位），移位时首先提升成int类型（4字节，32位）</li>
+<li>可以使用位与（&amp;）位或（|）位异或（^)等进行状态只有2的统计，如班级30个学生是否通过考试，unsigned long32位，若通过则与1&lt;&lt;i（学生编号）位与运算</li>
+<li>移位运算符优先级比算术运算符的优先级低，但比关系运算符、赋值运算符、条件运算符的优先级高</li>
+</ol>
+<h3 id="4-9-4-10-sizeof-运算符和逗号运算符"><a href="#4-9-4-10-sizeof-运算符和逗号运算符" class="headerlink" title="4.9+4.10 sizeof  运算符和逗号运算符"></a>4.9+4.10 sizeof  运算符和逗号运算符</h3><ol>
+<li>对数组执行sizeof运算符得到整个数组所占空间的大小（并不会当成指针处理），但对string对象或vector对象执行sizeof运算只返回该类型固定部分的大小，不会计算对象的元素占用了多少空间</li>
+<li>逗号运算符真正的结果是<strong>右侧表达式的值</strong>，如果右侧表达式是左值，则最终的求值结果也是左值</li>
+</ol>
+<h3 id="4-11-类型转换"><a href="#4-11-类型转换" class="headerlink" title="4.11 类型转换"></a>4.11 类型转换</h3><ol>
+<li>整型提升：对于bool\char\unsigned char\short\等类型来说，只要它们所有可能的值能存在Int里，它们就会提升成int 类型</li>
+<li>如果一个运算对象是无符号类型，另外一个是带符号类型，而且其中无符号类型不小于带符号类型（所占空间），那么带符号的运算对象转换成无符号的（若负值极有可能引发错误）</li>
+<li>如果带符号类型大于无符号类型，如果无符号类型的所有值都能存在该带符号类型中，则无符号类型的运算对象转换成带符号类型。如果不能，那么带符号类型的运算对象转换成无符号型，例如，如果两个运算对象的类型分别是Long 和unsigned int ，并且int和long的大小相同，则long类型的运算对象转换成unsigned int 类型，若long类型占用的空间比int 多，则unsignde int类型的运算符转换成long 类型</li>
+<li>在绝大多数用到数组的表达式中，数组自动转换成指向数组首元素的指针，而当数组被用作decltype关键字，或作为取地址符（&amp;)、sizeof及typeid等运算符的运算对象时，上述转换不会发生，同样的，如果用一个引用来初始化数组，上述转换也不会发生。</li>
+<li>指向任意非常量的指针能转换成void<em>,指向任意对象的指针能转换成const void\</em></li>
+<li>强制类型转换： cast-name<type>(expression)</li>
+<li>cast-name 是 static_cast、dynamic_cast、const_cast、reinterpret_cast中的一种</li>
+<li>static_cast: 任何具有<strong>明确定义</strong>的类型转换，只要不包含底层const，都可以使用static_cast。</li>
+<li>const_cast 只能改变运算对象的底层const，如果对象本身不是一个常量，使用强制类型转换获得写权限是合法的行为，但如果对象本身是一个常量，再用const_cast执行写操作就会产生未定义的后果（常用于有函数重载的上下文中）</li>
+<li>reinterpret_cast通常位运算对象的位模式提供较低层次上的重新解释（本质上依赖于机器，要想安全使用必须对涉及的类型和编译器实现转换的过程非常了解）</li>
+</ol>
+<p><img src="C:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200331142248724.png" alt="image-20200331142248724"></p>
+<p><img src="C:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200331142403234.png" alt="image-20200331142403234"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/31/c-stl-zhi-map-shi-yong/" rel="next" title="C++ STL之map使用">
+                <i class="fa fa-chevron-left"></i> C++ STL之map使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-Primer-阅读笔记"><span class="nav-number">1.</span> <span class="nav-text">C++Primer 阅读笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第四章-表达式"><span class="nav-number">1.1.</span> <span class="nav-text">第四章  表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-递增和递减运算符"><span class="nav-number">1.1.1.</span> <span class="nav-text">4.5 递增和递减运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7条件运算符"><span class="nav-number">1.1.2.</span> <span class="nav-text">4.7条件运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8位运算符"><span class="nav-number">1.1.3.</span> <span class="nav-text">4.8位运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9-4-10-sizeof-运算符和逗号运算符"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.9+4.10 sizeof  运算符和逗号运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-11-类型转换"><span class="nav-number">1.1.5.</span> <span class="nav-text">4.11 类型转换</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
