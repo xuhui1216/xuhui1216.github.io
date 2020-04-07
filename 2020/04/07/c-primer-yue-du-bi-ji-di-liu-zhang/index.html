@@ -458,14 +458,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -482,7 +482,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="C-Primer-阅读笔记-第六章"><a href="#C-Primer-阅读笔记-第六章" class="headerlink" title="C++ Primer 阅读笔记-第六章"></a>C++ Primer 阅读笔记-第六章</h1><ul>
-<li><p>我们可以使用非常量初始化一个底层const对象，但反过来不行，一个普通的引用必须使用同类型的对象初始化</p>
+<li><p>我们可以使用非常量初始化一个底层<code>const</code>对象，但反过来不行，一个普通的引用必须使用同类型的对象初始化</p>
 </li>
 <li><p>数组也有begin和end函数，<code>int m[10],  begin(m)</code>返回指针</p>
 </li>
@@ -492,7 +492,7 @@
 </li>
 <li><p>如果函数的实参数量未知但是全部实参的类型都相同，我们可以使用initializer_list 类型的形参，<strong>initializer_list</strong>是一种标准库类型，用于表示某种特定类型的值的数组，定义在同名的头文件中</p>
 </li>
-<li><p><img src="/2020/04/07/c-primer-yue-du-bi-ji-di-liu-zhang/C:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200407165444698.png" alt="image-20200407165444698"></p>
+<li><p>![image-20200407165444698](C:\Users\xuhui\myBlog\source_posts\C++ Primer 阅读笔记-第六章\image-20200407165444698.png)</p>
 </li>
 <li><p>省略符形参是为了便于C++程序访问某些特殊的C代码而设置的，这些代码使用了名为varargs的标准库功能。</p>
 </li>
@@ -519,13 +519,13 @@ int (*p2)[10]=&amp;arr; //p2是一个指针，指向含有10个整数的数组</
 </li>
 <li><p>非常量可以转换成<code>const</code>，但<code>const</code>对象不能转换成普通对象，当我们传递一个非常量对象或指向非常量对象的指针时，编译器会优化选用非常量版本的函数</p>
 </li>
-<li><p><img src="/2020/04/07/c-primer-yue-du-bi-ji-di-liu-zhang/C:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200407171532506.png" alt="image-20200407171532506"></p>
+<li><p>![image-20200407171532506](C:\Users\xuhui\myBlog\source_posts\C++ Primer 阅读笔记-第六章\image-20200407171532506-1586271845254.png)</p>
 </li>
 <li><p><strong>函数匹配</strong>是指一个过程，在这个过程中我们把函数调用于一组重载函数中的某一个关联起来，函数匹配也叫<strong>重载确定</strong></p>
 </li>
 <li><p>如果在一个内层作用域中声明名字，它将隐藏外层作用域中声明的同名实体，在不同的作用域中无法重载函数名。例子见下图：</p>
 </li>
-<li><p><img src="/2020/04/07/c-primer-yue-du-bi-ji-di-liu-zhang/C:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200407172315431.png" alt="image-20200407172315431"></p>
+<li><p>![image-20200407172315431](C:\Users\xuhui\myBlog\source_posts\C++ Primer 阅读笔记-第六章\image-20200407172315431-1586272015496.png)</p>
 </li>
 <li><p>在给定的作用域中一个形参只能被赋予一次默认实参，换句话说，函数的后续声明只能为之前那些没有默认值的形参参加默认实参，而且该形参右侧的所有形参必须有默认值</p>
 </li>
@@ -533,9 +533,9 @@ int (*p2)[10]=&amp;arr; //p2是一个指针，指向含有10个整数的数组</
 </li>
 <li><p>用作默认实参的名字在函数声明所在的作用域内被解析，但这些名字的求值过程发生在<strong>函数调用时</strong></p>
 </li>
-<li><p><img src="/2020/04/07/c-primer-yue-du-bi-ji-di-liu-zhang/C:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200407172934636.png" alt="image-20200407172934636"></p>
+<li><p>![image-20200407172934636](C:\Users\xuhui\myBlog\source_posts\C++ Primer 阅读笔记-第六章\image-20200407172934636-1586272091819.png)</p>
 </li>
-<li><p><img src="/2020/04/07/c-primer-yue-du-bi-ji-di-liu-zhang/C:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200407173002740.png" alt="image-20200407173002740"></p>
+<li><p>![image-20200407173002740](C:\Users\xuhui\myBlog\source_posts\C++ Primer 阅读笔记-第六章\image-20200407173002740-1586272156131.png)</p>
 </li>
 <li><p><code>constexpr</code>函数是指能用于常量表达式的函数，函数的返回类型以及所有的形参类型都得是字面值类型，而且函数体中必须有且只有一条return语句，<code>constexpr</code>函数被隐式地指定为内联函数</p>
 </li>
@@ -545,9 +545,9 @@ int (*p2)[10]=&amp;arr; //p2是一个指针，指向含有10个整数的数组</
 </li>
 <li><p>编译器为每个函数都定义了<code>__func__</code>用来存放函数的名字（<code>const char</code>的一个静态数组）</p>
 </li>
-<li><p><img src="/2020/04/07/c-primer-yue-du-bi-ji-di-liu-zhang/C:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200407204520431.png" alt="image-20200407204520431"></p>
+<li><p>![image-20200407204520431](C:\Users\xuhui\myBlog\source_posts\C++ Primer 阅读笔记-第六章\image-20200407204520431-1586272212869.png)</p>
 </li>
-<li><p><img src="/2020/04/07/c-primer-yue-du-bi-ji-di-liu-zhang/C:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200407204536703.png" alt="image-20200407204536703"></p>
+<li><p>![image-20200407204536703](C:\Users\xuhui\myBlog\source_posts\C++ Primer 阅读笔记-第六章\image-20200407204536703.png)</p>
 </li>
 <li><p>函数匹配的第一步是选定本次调用对应的重载函数集，集合中的函数成为<strong>候选函数</strong>（candidate function)，候选函数于被调用的函数同名，且其声明在调用点可见</p>
 </li>
@@ -559,7 +559,7 @@ int (*p2)[10]=&amp;arr; //p2是一个指针，指向含有10个整数的数组</
 </li>
 <li><p>若没发现最佳匹配函数，编译器将报告二义性调用的信息</p>
 </li>
-<li><p><img src="/2020/04/07/c-primer-yue-du-bi-ji-di-liu-zhang/C:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200407210106559.png" alt="image-20200407210106559"></p>
+<li><p>![image-20200407210106559](C:\Users\xuhui\myBlog\source_posts\C++ Primer 阅读笔记-第六章\image-20200407210106559.png)</p>
 </li>
 <li><p><code>void manip(long);  void manip(float); manip(3.14);  //错误：二义性调用</code></p>
 </li>
@@ -1089,7 +1089,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.3k</span>&nbsp;字
+                class="white-color">4.5k</span>&nbsp;字
             
             
             
