@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C++ Primer 阅读笔记-第五章, Hexo">
+    <meta name="keywords" content="C++ STL之map使用, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>C++ Primer 阅读笔记-第五章 | Hexo</title>
+    <title>C++ STL之map使用 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -306,12 +306,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C++ Primer 阅读笔记-第五章</h1>
+                    <h1 class="description center-align post-title">C++ STL之map使用</h1>
                 </div>
             </div>
         </div>
@@ -426,12 +426,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C-STL/">
+                                <span class="chip bg-color">C++STL</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C-STL/" class="post-category">
+                                C++STL
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -440,7 +453,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-01
+                    2020-04-15
                 </div>
                 
 
@@ -449,14 +462,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    323
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -472,17 +485,63 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="C-Primer-阅读笔记-第五章"><a href="#C-Primer-阅读笔记-第五章" class="headerlink" title="C++ Primer 阅读笔记-第五章"></a>C++ Primer 阅读笔记-第五章</h1><ol>
-<li>case标签必须是整型常量表达式</li>
-<li>continue<strong>终止</strong>最近的循环的当前迭代并立即开始下一次迭代</li>
-<li>带标签语句是一种特殊的语句，在它之前有一个标识符和一个冒号（标签标识符独立于变量或其他标识符的名字，因此，标签标识符可以和程序中其他实体的标识符<strong>使用同一个名字</strong>而不互相干扰）</li>
-<li>goto语句不能跳过后面可能会使用到的变量的定义，但向前跳到变量定义之前意味着系统将销毁该变量，然后重建它</li>
-<li>throw表达式抛出异常，终止当前的函数，并将控制权转移给能处理该异常的代码</li>
-<li>runtime_error 标准库异常类型，定义在stdexcept头文件中（使用string对象或C风格字符串进行初始化）</li>
-<li>catch一旦完成，程序跳转到try语句块最后一个catch子句之后的那条语句继续执行</li>
-<li>若没有匹配到catch子句，则程序转到名为<strong>terminate</strong>的标准库函数，该函数的行为与系统有关，一般情况下，执行该函数将导致程序非正常退出</li>
-</ol>
-<p><img src="C:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200331192240796.png" alt="image-20200331192240796"></p>
+                <h1 id="C-STL之map使用"><a href="#C-STL之map使用" class="headerlink" title="C++ STL之map使用"></a>C++ STL之map使用</h1><h2 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a>介绍：</h2><p>map是STL的一个关联容器，它提供一对一（其中第一个可以称为关键字，每个关键字只能在map中出现一次，第二个可能称为该关键字的值）的数据处理能力，由于这个特性，它完成有可能在我们处理一对一数据的时候，在编程上提供快速通道。这里说下map内部数据的组织，map内部自建一颗<strong>红黑树</strong>(一种非严格意义上的平衡二叉树)，这颗树具有<strong>对数据自动排序</strong>的功能，所以在map内部所有的数据都是有序的，后边我们会见识到有序的好处。</p>
+<h2 id="头文件和构造函数："><a href="#头文件和构造函数：" class="headerlink" title="头文件和构造函数："></a>头文件和构造函数：</h2><p>#include<map></p>
+<p>使用格式：</p>
+<pre class=" language-C++"><code class="language-C++">map<datatype,datatype> Exm;</code></pre>
+<h2 id="插入："><a href="#插入：" class="headerlink" title="插入："></a>插入：</h2><pre><code>// 定义一个map对象map&lt;int, string&gt; mapStudent; 
+// 第一种 用insert函數插入pair
+mapStudent.insert(pair&lt;int, string&gt;(000, &quot;student_zero&quot;)); 
+// 第二种 用insert函数插入value_type数据
+mapStudent.insert(map&lt;int, string&gt;::value_type(001, &quot;student_one&quot;));
+// 第三种 用&quot;array&quot;方式插入
+mapStudent[123] = &quot;student_first&quot;;mapStudent[456] = &quot;student_second&quot;;</code></pre><p>当map中有待插入元素的关键字时，insert操作是不能在插入数据的，但是用数组方式就不同了，它可以覆盖以前该关键字对应的值。</p>
+<blockquote>
+<p>pair:  c++中的结构模板，定义在头文件utility中，提供一个包含2个数据成员的结构体模板。继承与_Pair_base结构体模板。通过first，second访问2个成员，有 operator= 和 swap 方法。(将两个数据成员合并为一个)</p>
+<p>value_type类型：指迭代器所指对象的型别。任何一个打算与STL算法有完美搭配的class，都应该定义自己的value_ type内嵌型别。（常用于模板的构建）</p>
+</blockquote>
+<pre><code>// 构造定义，返回一个pair对象
+pair&lt;iterator,bool&gt; insert (const value_type&amp; val);
+pair&lt;map&lt;int, string&gt;::iterator, bool&gt; Insert_Pair;
+Insert_Pair = mapStudent.insert(map&lt;int, string&gt;::value_type (001,&quot;student_one&quot;)); 
+if(!Insert_Pair.second)   
+cout &lt;&lt; &quot;&quot;Error insert new element&quot; &lt;&lt; endl;</code></pre><p>我们通过pair的第二个变量来知道是否插入成功，它的第一个变量返回的是一个map的迭代器，如果插入成功的话Insert_Pair. second应该是true的，否则为false。</p>
+<h2 id="查找："><a href="#查找：" class="headerlink" title="查找："></a>查找：</h2><p>使用迭代器+find函数，注意查找的是关键字key,若成功则返回迭代器，若失败返回map. end()</p>
+<h2 id="删除与清空："><a href="#删除与清空：" class="headerlink" title="删除与清空："></a>删除与清空：</h2><pre><code>//迭代器刪除
+iter = mapStudent.find(&quot;123&quot;);
+mapStudent.erase(iter); 
+//用关键字刪除
+int n = mapStudent.erase(&quot;123&quot;); 
+//如果刪除了會返回1，否則返回0 
+//用迭代器范围刪除 : 把整个map清空
+mapStudent.erase(mapStudent.begin(), mapStudent.end());
+//等同于mapStudent.clear()</code></pre><p>注意map是有序的</p>
+<h2 id="大小："><a href="#大小：" class="headerlink" title="大小："></a>大小：</h2><p>size函数，不加赘述</p>
+<h2 id="map的基本操作函数"><a href="#map的基本操作函数" class="headerlink" title="map的基本操作函数"></a><strong>map的基本操作函数</strong></h2><p>C++ maps是一种关联式容器，包含“关键字/值”对</p>
+<p> begin()         返回指向map头部的迭代器</p>
+<p> clear(）        删除所有元素</p>
+<p> count()         返回指定元素出现的次数</p>
+<p> empty()         如果map为空则返回true</p>
+<p> end()           返回指向map末尾的迭代器</p>
+<p> equal_range()   返回特殊条目的迭代器对</p>
+<p> erase()         删除一个元素</p>
+<p> find()          查找一个元素</p>
+<p> get_allocator() 返回map的配置器</p>
+<p> insert()        插入元素</p>
+<p> key_comp()      返回比较元素key的函数</p>
+<p> lower_bound()   返回键值&gt;=给定元素的第一个位置</p>
+<p> max_size()      返回可以容纳的最大元素个数</p>
+<p> rbegin()        返回一个指向map尾部的逆向迭代器</p>
+<p> rend()          返回一个指向map头部的逆向迭代器</p>
+<p> size()          返回map中元素的个数</p>
+<p> swap()           交换两个map</p>
+<p> upper_bound()    返回键值&gt;给定元素的第一个位置</p>
+<p> value_comp()     返回比较元素value的函数</p>
+<h2 id="map与unordered-map"><a href="#map与unordered-map" class="headerlink" title="map与unordered_map"></a>map与unordered_map</h2><p>区别在于是否排序，map: 在缺省下，按照递增的排序顺序unordered_map :不排序  </p>
+<p>map :在map内部采用了自平衡的BST（二叉搜索树）的数据结构，实现了数据排序；unordered_map: 内部采用了哈希表的数据结构</p>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><p>map： 该类型的搜索时间复杂度为log(n)     unordered_map ： 搜索时间复杂度。O(1)为平均时间，最坏情况下的时间复杂度为O（n）;</p>
+<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>map : 该操作的时间 复杂度为log(n)+再平衡时间    unordered_map : 该操作的时间复杂度与搜索的时间复杂度一样。</p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>删除操作的时间复杂度与插入操作的时间复杂度是一样的。</p>
 
             </div>
             <hr/>
@@ -498,7 +557,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://xuhui1216.github.io" rel="external nofollow noreferrer">John Doe</a>
+                    <a href="http://xuhui1216.github.io" rel="external nofollow noreferrer">阿辉今天没有鸽</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -508,7 +567,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://xuhui1216.github.io/2020/04/01/c-primer-yue-du-bi-ji-di-wu-zhang/">http://xuhui1216.github.io/2020/04/01/c-primer-yue-du-bi-ji-di-wu-zhang/</a>
+                    <a href="http://xuhui1216.github.io/2020/04/15/c-stl-zhi-map-shi-yong/">http://xuhui1216.github.io/2020/04/15/c-stl-zhi-map-shi-yong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -521,7 +580,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="http://xuhui1216.github.io" target="_blank">John Doe</a>
+                    <a href="http://xuhui1216.github.io" target="_blank">阿辉今天没有鸽</a>
                     !
                 </span>
             </div>
@@ -545,7 +604,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/C-STL/">
+                                    <span class="chip bg-color">C++STL</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -709,45 +772,50 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/04/07/c-primer-yue-du-bi-ji-di-liu-zhang/">
+                <a href="/2020/04/15/c-stl-zhi-map-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="C++ Primer 阅读笔记-第六章">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="C++ STL之map使用">
                         
-                        <span class="card-title">C++ Primer 阅读笔记-第六章</span>
+                        <span class="card-title">C++ STL之map使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            C++ Primer 阅读笔记-第六章
-我们可以使用非常量初始化一个底层const对象，但反过来不行，一个普通的引用必须使用同类型的对象初始化
-
-数组也有begin和end函数，int m[10],  begin(m)返回指针
-
-数组也可绑
+                            C++ STL之map使用介绍：map是STL的一个关联容器，它提供一对一（其中第一个可以称为关键字，每个关键字只能在map中出现一次，第二个可能称为该关键字的值）的数据处理能力，由于这个特性，它完成有可能在我们处理一对一数据的时候，在编程
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C-Primer/" class="post-category">
-                                    C++ Primer
+                            <a href="/categories/C-STL/" class="post-category">
+                                    C++STL
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C-STL/">
+                        <span class="chip bg-color">C++STL</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -759,35 +827,45 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/31/c-primer-yue-du-bi-ji-di-si-zhang/">
+                <a href="/2020/04/15/c-stl-pair/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="C++Primer 阅读笔记-第四章">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="C++ STL-pair">
                         
-                        <span class="card-title">C++Primer 阅读笔记-第四章</span>
+                        <span class="card-title">C++ STL-pair</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            C++Primer 阅读笔记第四章  表达式4.5 递增和递减运算符
-自增和自减运算符必须作用于左值运算对象，前置版本将对象本身作为左值返回，后置版本则将对象原始值的副本作为右值返回。
-
-除非必须，否则不用递增递减运算符的后置版本（将原始值
+                            C++ STL-pairtemplate &lt;class T1, class T2&gt; struct pair;
+cppReference 官方解释：This class couples together a pair of val
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-15
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            John Doe
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C-STL/" class="post-category">
+                                    C++STL
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C-STL/">
+                        <span class="chip bg-color">C++STL</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -992,7 +1070,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.3k</span>&nbsp;字
+                class="white-color">6k</span>&nbsp;字
             
             
             

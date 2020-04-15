@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Hexo">
+    <meta name="keywords" content="C++ Primer 阅读笔记-第五章, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | Hexo</title>
+    <title>C++ Primer 阅读笔记-第五章 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -306,12 +306,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">C++ Primer 阅读笔记-第五章</h1>
                 </div>
             </div>
         </div>
@@ -433,6 +433,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C-Primer/" class="post-category">
+                                C++ Primer
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -440,7 +449,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-30
+                    2020-04-07
                 </div>
                 
 
@@ -449,7 +458,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    73
+                    323
                 </div>
                 
 
@@ -472,15 +481,17 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+                <h1 id="C-Primer-阅读笔记-第五章"><a href="#C-Primer-阅读笔记-第五章" class="headerlink" title="C++ Primer 阅读笔记-第五章"></a>C++ Primer 阅读笔记-第五章</h1><ol>
+<li>case标签必须是整型常量表达式</li>
+<li>continue<strong>终止</strong>最近的循环的当前迭代并立即开始下一次迭代</li>
+<li>带标签语句是一种特殊的语句，在它之前有一个标识符和一个冒号（标签标识符独立于变量或其他标识符的名字，因此，标签标识符可以和程序中其他实体的标识符<strong>使用同一个名字</strong>而不互相干扰）</li>
+<li>goto语句不能跳过后面可能会使用到的变量的定义，但向前跳到变量定义之前意味着系统将销毁该变量，然后重建它</li>
+<li>throw表达式抛出异常，终止当前的函数，并将控制权转移给能处理该异常的代码</li>
+<li>runtime_error 标准库异常类型，定义在stdexcept头文件中（使用string对象或C风格字符串进行初始化）</li>
+<li>catch一旦完成，程序跳转到try语句块最后一个catch子句之后的那条语句继续执行</li>
+<li>若没有匹配到catch子句，则程序转到名为<strong>terminate</strong>的标准库函数，该函数的行为与系统有关，一般情况下，执行该函数将导致程序非正常退出</li>
+</ol>
+<p><img src="C:%5CUsers%5Cxuhui%5CDesktop%5C%E6%96%87%E6%A1%88%E7%B4%A0%E6%9D%90%5CTypora%5Cimage-20200331192240796.png" alt="image-20200331192240796"></p>
 
             </div>
             <hr/>
@@ -496,7 +507,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://xuhui1216.github.io" rel="external nofollow noreferrer">John Doe</a>
+                    <a href="http://xuhui1216.github.io" rel="external nofollow noreferrer">徐辉</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -506,7 +517,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://xuhui1216.github.io/2020/03/30/hello-world/">http://xuhui1216.github.io/2020/03/30/hello-world/</a>
+                    <a href="http://xuhui1216.github.io/2020/04/07/c-primer-yue-du-bi-ji-di-wu-zhang/">http://xuhui1216.github.io/2020/04/07/c-primer-yue-du-bi-ji-di-wu-zhang/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -519,7 +530,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="http://xuhui1216.github.io" target="_blank">John Doe</a>
+                    <a href="http://xuhui1216.github.io" target="_blank">徐辉</a>
                     !
                 </span>
             </div>
@@ -711,32 +722,47 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/03/31/c-stl-zhi-map-shi-yong/">
+                <a href="/2020/04/09/cun-zai-zhu-yi-xin-li-zhi-liao-yue-du-bi-ji-dao-lun/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="C++ STL之map使用">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="存在主义心理治疗阅读笔记--导论">
                         
-                        <span class="card-title">C++ STL之map使用</span>
+                        <span class="card-title">存在主义心理治疗阅读笔记--导论</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            C++ STL之map使用介绍：map是STL的一个关联容器，它提供一对一（其中第一个可以称为关键字，每个关键字只能在map中出现一次，第二个可能称为该关键字的值）的数据处理能力，由于这个特性，它完成有可能在我们处理一对一数据的时候，在编程
+                            
+存在主义的心理治疗是一种动力性治疗方法，其焦点在于根植于个体存在中的关怀
+个体的心理动力学包括了在其内部运转的多种无意识和意识的力量、动机以及恐惧。动力性心理治疗就是以这个心理功能动力性模型为基础的治疗
+弗洛伊德：儿童被本能的力量所支配，
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-31
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            John Doe
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89%E5%BF%83%E7%90%86%E6%B2%BB%E7%96%97/" class="post-category">
+                                    存在主义心理治疗
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/note/">
+                        <span class="chip bg-color">note</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -745,37 +771,45 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/30/hello-world/">
+                <a href="/2020/04/07/c-primer-yue-du-bi-ji-di-liu-zhang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="C++ Primer 阅读笔记-第六章">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">C++ Primer 阅读笔记-第六章</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            C++ Primer 阅读笔记-第六章
+我们可以使用非常量初始化一个底层const对象，但反过来不行，一个普通的引用必须使用同类型的对象初始化
+
+数组也有begin和end函数，int m[10],  begin(m)返回指针
+
+数组也可绑
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-07
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            John Doe
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C-Primer/" class="post-category">
+                                    C++ Primer
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -979,7 +1013,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.3k</span>&nbsp;字
+                class="white-color">6k</span>&nbsp;字
             
             
             
