@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C++ STL-pair, Hexo">
+    <meta name="keywords" content="Matlab从入门到入土 第一、二章, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>C++ STL-pair | Hexo</title>
+    <title>Matlab从入门到入土 第一、二章 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -306,12 +306,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C++ STL-pair</h1>
+                    <h1 class="description center-align post-title">Matlab从入门到入土 第一、二章</h1>
                 </div>
             </div>
         </div>
@@ -428,8 +428,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C-STL/">
-                                <span class="chip bg-color">C++STL</span>
+                            <a href="/tags/Matlab/">
+                                <span class="chip bg-color">Matlab</span>
                             </a>
                         
                     </div>
@@ -440,8 +440,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C-STL/" class="post-category">
-                                C++STL
+                            <a href="/categories/Matlab/" class="post-category">
+                                Matlab
                             </a>
                         
                     </div>
@@ -453,7 +453,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-15
+                    2020-05-01
                 </div>
                 
 
@@ -462,14 +462,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    377
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -485,35 +485,92 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="C-STL-pair"><a href="#C-STL-pair" class="headerlink" title="C++ STL-pair"></a>C++ STL-pair</h1><p>template &lt;class T1, class T2&gt; struct pair;</p>
-<p><code>cppReference</code> 官方解释：This class couples together a pair of values, which may be of different types (T1 and T2). The individual values can be accessed through its public members first and second.</p>
-<h2 id="创建：-pair-对象支持复制和移动赋值"><a href="#创建：-pair-对象支持复制和移动赋值" class="headerlink" title="创建：(pair 对象支持复制和移动赋值)"></a>创建：(pair 对象支持复制和移动赋值)</h2><pre><code>   std::pair&lt;int,char&gt; c(1,&#39;a&#39;);
-   //或：
-   auto c=make_pair::(1,&#39;a&#39;);
-   //复制构造：
-   std::pair&lt;int,char&gt; d(c)  //d{c}也可以</code></pre><p>（若不加以初始化部分内置类型会默认初始化</p>
-<p>pair对象支持 ==、!=、&lt;、&lt;=、&gt;、&gt;=全套运算符，先比较first，若first相等比较second（字符串按照字典序进行比较）</p>
-<h2 id="类成员："><a href="#类成员：" class="headerlink" title="类成员："></a>类成员：</h2><p>first (指向第一个value)  </p>
-<p>second(指向第二个value)</p>
-<p>swap():  <code>void swap (pair&amp; pr) noexcept ( noexcept(swap(first,pr.first)) &amp;&amp;noexcept(swap(second,pr.second)) )</code>;`{</p>
-<p><code>swap(first,pr.first)</code>;  <code>swap(second,pr.second);}</code></p>
-<pre><code>    std::pair&lt;int,char&gt; foo (10,&#39;a&#39;);
-      std::pair&lt;int,char&gt; bar (90,&#39;z&#39;);
-    foo.swap(bar);</code></pre><h2 id="非成员函数重载："><a href="#非成员函数重载：" class="headerlink" title="非成员函数重载："></a>非成员函数重载：</h2><p><code>std::get(pair)</code>:Returns a reference to member first if I is <code>0</code>, or a reference to member second if I is <code>1</code>.</p>
-<pre><code>    std::pair &lt;int,char&gt; foo (10,&#39;x&#39;);
-      std::get&lt;0&gt;(foo) = 50;
-      //因为返回引用，所以foo.first已经被修改成50</code></pre><h2 id="通过tie获取pair元素值"><a href="#通过tie获取pair元素值" class="headerlink" title="通过tie获取pair元素值"></a><strong>通过tie获取pair元素值</strong></h2><p>在某些清况函数会以pair对象作为返回值时，可以直接通过<code>std::tie</code>进行接收。比如：</p>
-<pre><code>    std::pair&lt;std::string, int&gt; getPreson() {
-    return std::make_pair(&quot;Sven&quot;, 25);
-    } 
-    int main(int argc, char **argv) {    
-    std::string name;    
-    int ages;     
-    std::tie(name, ages) = getPreson();     
-    std::cout &lt;&lt; &quot;name: &quot; &lt;&lt; name &lt;&lt; &quot;, ages: &quot; &lt;&lt; ages &lt;&lt; std::endl;     
-    return 0;
-    }
-</code></pre>
+                <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Command Window 运行入门</p>
+<ul>
+<li>magic函数：生成一个每行每列之和相等的魔方矩阵</li>
+<li>数值相对精度 eps(2.2204e-16) (约16位)，数值范围：10e-308-10e308</li>
+<li>变量名最多可以包含63个字符，第一个字符必须是英文字母，不得包含空格，标点，但可以包含下划线</li>
+<li><img src="C:%5CUsers%5Cxuhui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200501223014548.png" alt="image-20200501223014548"></li>
+<li>复数输入：f=a+bi   <ul>
+<li>real(f)  实部</li>
+<li><code>imag</code>(f) 虚部</li>
+<li>abs(f)  模</li>
+<li>angle(f) 相位角</li>
+</ul>
+</li>
+<li>注释：%（一行）</li>
+<li>如果在命令行的结尾加上分号;则运行结果只保存在工作区内，而不在命令窗口中显示出来</li>
+<li>若计算复数的立方根，会直接给出在第一象限的根，若想要得到全部立方根，可采用模*exp(相位角)的方法（可用向量全部显示）</li>
+<li>输入多行命令并且不运行：在输完命令之后按Shift+Enter快捷键，  当用户输入有关键词的多行循环命令时（如for/end),并不需要使用快捷键，直接按Enter键可进入下一行</li>
+<li>在多个函数之间加入逗号或者分号将各个函数分开，即可实现同一行内输入多个函数命令</li>
+<li>…作为标识符，表示下一行命令和本行命令连续（不能出现在两个单引号之间）</li>
+<li><img src="C:%5CUsers%5Cxuhui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200501230718372.png" alt="image-20200501230718372"></li>
+<li><img src="C:%5CUsers%5Cxuhui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200501230737033.png" alt="image-20200501230737033"></li>
+<li><img src="C:%5CUsers%5Cxuhui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200501230747137.png" alt="image-20200501230747137"></li>
+<li>通过Command History 窗口执行历史命令的方法有：<ul>
+<li>双击某一条命令，发送到命令窗口立即执行</li>
+<li>选中想要再次执行的命令，复制到命令窗口</li>
+<li>选中需要执行的命令并右击，选择Evaluate Selection </li>
+</ul>
+</li>
+<li>使用 diary + (任意名字) 可将Command Window 显示的内容全部记录下来</li>
+<li>Shift+F1  Function Browser</li>
+<li>lookfor 与help类似，它们都只对M文件的第一行进行关键字搜索， 不同的是，help只搜索关键字完全匹配的结果，而lookfor对搜索范围内的文件进行关键字搜索的条件相对宽松，一旦发现此行中含有所查询的字符串，则将改函数名及第一行注释完全显示在屏幕上</li>
+</ul>
+<h1 id="第二章-矩阵和数组"><a href="#第二章-矩阵和数组" class="headerlink" title="第二章 矩阵和数组"></a>第二章 矩阵和数组</h1><ul>
+<li>矩阵分隔符：逗号或者空格</li>
+<li>Matlab可以通过“初值：步长：终值”的方式创建向量（步长可以为正数、负数或者小数，若不指定步长默认为1）</li>
+<li><img src="C:%5CUsers%5Cxuhui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200501235207089.png" alt="image-20200501235207089"></li>
+<li>若要用函数产生相同的矩阵以验证操作结果，方法：  <code>rand(‘state’,0);</code> </li>
+<li>表达式C=[A B]将矩阵A\B在水平方向合并到一起，C=[A,B] 竖直方向</li>
+<li>矩阵的标识：<ul>
+<li>全下标标识法：A(3,5)</li>
+<li>单下标标识法：存储顺序  列优先存储 对于A(m*n) A(a,b)=A((b-1)*m+a)</li>
+<li>对应函数： sub2ind:根据全下标换算出单下标   ind2sub:根据单下标换算出全下标</li>
+<li>逻辑1标识法：用一个基于原矩阵A相对位置的逻辑数组B来对矩阵A进行寻访，数组B中每一个true值（也就是1）表示A中相对位置的元素可以被寻访（在速度方面有优势）  </li>
+<li>如： a=[1,2,3;4,5,6]; B=a&gt;5   -&gt;B=[0,0,0;0,0,1]</li>
+</ul>
+</li>
+<li>使用冒号可以寻访全行/全列元素</li>
+<li><img src="C:%5CUsers%5Cxuhui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200502000535632.png" alt="image-20200502000535632"></li>
+<li><img src="C:%5CUsers%5Cxuhui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200502000541689.png" alt="image-20200502000541689"></li>
+<li><img src="C:%5CUsers%5Cxuhui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200502000550291.png" alt="image-20200502000550291"></li>
+<li>矩阵信息查询：<ul>
+<li>Length: 返回矩阵最长的一维的长度</li>
+<li>numel: 返回矩阵的元素个数</li>
+<li>Ndims: 返回矩阵的维数</li>
+<li>size: 返回矩阵各维的长度</li>
+</ul>
+</li>
+<li>删除矩阵某一行/两行： A(3,:)=[ ]  /A(4:5,:)=[ ]</li>
+<li><img src="C:%5CUsers%5Cxuhui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200502001145305.png" alt="image-20200502001145305"></li>
+<li><img src="C:%5CUsers%5Cxuhui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200502001358909.png" alt="image-20200502001358909"></li>
+<li>当数据保存在矩阵现有维数以外的元素中时，矩阵的尺寸会自动增加</li>
+<li><img src="C:%5CUsers%5Cxuhui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200502001709154.png" alt="image-20200502001709154"></li>
+<li><img src="C:%5CUsers%5Cxuhui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200502001728575.png" alt="image-20200502001728575"></li>
+<li>矩阵中非零元素的个数初一所有元素的个数得到的商，就叫做矩阵的密度，密度越小的矩阵采用稀疏矩阵的格式越有利</li>
+<li>sparse函数将一般矩阵转换为稀疏矩阵，full将稀疏矩阵转换为一般矩阵</li>
+<li>S=sparse(i, j,s,m,n) i、j、s都是矢量，分别存储矩阵中非零元素的行号和列号以及非零元素的值， m,n为输出的稀疏矩阵的行数和列数</li>
+<li>要将一个矩阵的对角线元素保存在一个稀疏矩阵中，可以用函数spdiags(B,d,m,n)  创建一个大小为m行n列的稀疏矩阵，其非零元素来自矩阵B中的元素且按对角线排列，参数d指定矩阵B中用于生成稀疏矩阵B的对角线位置</li>
+<li>当使用方括号对矩阵进行组合时，若组合的矩阵中有稀疏矩阵，则结果为稀疏矩阵</li>
+<li>spy函数，观察稀疏矩阵非零元素的分布视图</li>
+<li>多维数组的创建：<ul>
+<li>直接通过“全下标”元素赋值的方式创建多维数组  A(3,3,3)=1   创建3*3*3数组，未赋值元素默认为0</li>
+<li>由若干个同样大小的二维数组组合成多维数组</li>
+<li>由函数ones、zeros、rand、randn等直接创建特殊的多维数组</li>
+<li>借助cat、repmat、reshape等函数创建多维数组</li>
+</ul>
+</li>
+<li>repmat函数的第一个输入变量是构成多维数组的源数组，第2个输入变量是指定向各维方向上扩展的源数组个数</li>
+<li>多维数组的“单下标”：将数组“全下标”格式中的各维按照出现的先后顺序依次循环，直至将所有的数据编排为一列</li>
+<li><img src="C:%5CUsers%5Cxuhui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200502005648538.png" alt="image-20200502005648538"></li>
+<li><img src="C:%5CUsers%5Cxuhui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200502010059809.png" alt="image-20200502010059809"></li>
+<li><img src="C:%5CUsers%5Cxuhui%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200502010320478.png" alt="image-20200502010320478"></li>
+<li>poly2str(a,’s’)  显示a所代表的以s为自变量的多项式     polyval(a,S)  当独立变量取数组中S元素时的多项式值     polyvalm(a,S)  独立变量取矩阵S时的多项式值</li>
+<li>含复数的根向量所生成的多项式系数向量的系数有可能包含处于截断误差数量级的虚部，此时应采用取实部的函数real来将此虚函数滤除掉</li>
+<li></li>
+</ul>
+
             </div>
             <hr/>
 
@@ -528,7 +585,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://xuhui1216.github.io" rel="external nofollow noreferrer">阿辉今天没有鸽</a>
+                    <a href="http://xuhui1216.github.io" rel="external nofollow noreferrer">终于想起来更新的辉爹</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -538,7 +595,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://xuhui1216.github.io/2020/04/15/c-stl-pair/">http://xuhui1216.github.io/2020/04/15/c-stl-pair/</a>
+                    <a href="http://xuhui1216.github.io/2020/05/01/matlab-cong-ru-men-dao-ru-tu-di-yi-zhang-gai-shu/">http://xuhui1216.github.io/2020/05/01/matlab-cong-ru-men-dao-ru-tu-di-yi-zhang-gai-shu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -551,7 +608,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="http://xuhui1216.github.io" target="_blank">阿辉今天没有鸽</a>
+                    <a href="http://xuhui1216.github.io" target="_blank">终于想起来更新的辉爹</a>
                     !
                 </span>
             </div>
@@ -576,8 +633,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/C-STL/">
-                                    <span class="chip bg-color">C++STL</span>
+                                <a href="/tags/Matlab/">
+                                    <span class="chip bg-color">Matlab</span>
                                 </a>
                             
                         </div>
@@ -743,9 +800,64 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/05/01/matlab-cong-ru-men-dao-ru-tu-di-yi-zhang-gai-shu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Matlab从入门到入土 第一、二章">
+                        
+                        <span class="card-title">Matlab从入门到入土 第一、二章</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            概述Command Window 运行入门
+
+magic函数：生成一个每行每列之和相等的魔方矩阵
+数值相对精度 eps(2.2204e-16) (约16位)，数值范围：10e-308-10e308
+变量名最多可以包含63个字符，第一个字符必
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Matlab/" class="post-category">
+                                    Matlab
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Matlab/">
+                        <span class="chip bg-color">Matlab</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/04/15/c-stl-zhi-map-shi-yong/">
                     <div class="card-image">
@@ -763,9 +875,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -785,50 +897,6 @@
                         <span class="chip bg-color">C++STL</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/04/09/ju-zi-shou-ji-bu-ding-qi-geng-xin/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="句子收集-不定期更新">
-                        
-                        <span class="card-title">句子收集-不定期更新</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-斯宾莎诺：每一事物都在尽力维持自身的存在
-
-
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%9D%82%E8%AE%B0/" class="post-category">
-                                    杂记
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
                 </div>
                 
             </div>
